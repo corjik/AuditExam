@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AuditExams.Models.Question>
+@{
+    //ViewData["Title"] = "Exam";
+}
+
+<h2>Exam</h2>
+Тест
+<form method="post" action="@Url.Action("Result", "Home")">
+    @foreach (var q in Model)
+    {
+
+        <fieldset class="form-group">
+            <input type="hidden" value="@q.Id" name="QuestionId" id="questionId" />
+            <legend>@q.QuestionText</legend>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="AnswerNum @q.Id" value="1" id="number" checked>
+                    @q.Variant1
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="AnswerNum @q.Id" value="2" id="number">
+                    @q.Variant2
+                </label>
+            </div>
+            <div class="form-check disabled">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="AnswerNum @q.Id" value="3" id="number">
+                    @q.Variant3
+                </label>
+            </div>
+            <br />
+        </fieldset>
+    }
+
+    <input type="submit" value="Отправить" />
+</form>
+
+<button type="button" class="btn btn-primary btn-lg" id="sendBtn">Проверить</button>
+
