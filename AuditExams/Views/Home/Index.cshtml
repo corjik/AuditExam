@@ -1,13 +1,41 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Онлайн-тестирование";
 }
 
 <div class="jumbotron">
-    <h1 class="display-3">Добро пожаловать.</h1>
-    <p class="lead">Вы находитесь на странице тестрования бла-бла-бла</p>
-    <hr class="m-y-2">
-    <p>Чтобы начать тестирование нажмите кнопку ниже</p>
-    <p class="lead">
-        <a asp-area="" asp-controller="Home" asp-action="Exam">About</a>
-    </p>
+    <h1 class="display-4">Добро пожаловать!</h1>
+    <p class="lead">На данном ресурсе вы можете пройти предварительное тестирование на сертификат аудитора.
+    Несколько уточнений:</p>
+    <p>1. На данный момент отсутствует ограничение по времени на решение теста;</p>
+    <p>2. При обновлении страницы или открытии/закрытии браузера данные по решенным вопросам сохранятся;</p>
+    <p>3. Пользоваться желательно браузером Google Chrome;</p>
+    <p>4. Для просмотра статистики перейдите в раздел "Статистика"</p>
+    <hr class="my-4">
+    <p>Для продолжения вам необходимо выбрать интересующий вас раздел</p>
+    <div class="container text-center">
+        <div class="row row-flex">
+            <div class="col-lg-3">
+                <h2>Общий</h2>
+                <p>Тестирование по всем разделам. Вопросы подбираются случайным образом из всех тем</p>
+                <button type="button" class="btn btn-primary btn-lg" id="courseSelector">Начать</button>
+            </div>
+            <div class="col-lg-3">
+                <h2>C1</h2>
+                <p>Тестирование по разделу "С1". Вопросы подбираются только из данного раздела</p>
+                <button type="button" class="btn btn-primary btn-lg" id="courseSelector">Начать</button>
+            </div>
+            <div class="col-lg-3">
+                <h2>C2</h2>
+                <p>Тестирование по разделу "С2". Вопросы подбираются только из данного раздела</p>
+                <button type="button" class="btn btn-primary btn-lg" id="courseSelector">Начать</button>
+            </div>
+            <div class="col-lg-3">
+                <h2>C3</h2>
+                <p>Тестирование по разделу "С3". Вопросы подбираются только из данного раздела</p>
+                <button type="button" class="btn btn-primary btn-lg" id="courseSelector">Начать</button>
+            </div>
+        </div>
+    </div>
+
 </div>
+<script src="~/js/testSelector.js" asp-append-version="true"></script>

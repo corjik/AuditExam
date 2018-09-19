@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using AuditExams.Models;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -26,6 +21,7 @@ namespace AuditExams
                 {
                     var context = services.GetRequiredService<ExamContext>();
                     SampleData.Initialize(context);
+
                 }
                 catch (Exception ex)
                 {

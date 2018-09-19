@@ -1,41 +1,39 @@
 ﻿@model IEnumerable<AuditExams.Models.Question>
 @{
-    //ViewData["Title"] = "Exam";
+    ViewData["Title"] = "Тестовые вопросы";
 }
 
-<h2>Exam</h2>
-Тест
-<form method="post" action="@Url.Action("Result", "Home")">
+
+
+<h1>@ViewBag.Course</h1>
+
+@*<form method="post" id="questionForm">
     @foreach (var q in Model)
     {
 
         <fieldset class="form-group">
             <input type="hidden" value="@q.Id" name="QuestionId" id="questionId" />
-            <legend>@q.QuestionText</legend>
+            <legend><h3>@q.Text Курс @q.Course</h3></legend>
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="AnswerNum @q.Id" value="1" id="number" checked>
-                    @q.Variant1
+                    <input type="radio" class="form-check-input" name="AnswerNum @q.Id" value="1" id="number" checked>@q.Variant1
                 </label>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="AnswerNum @q.Id" value="2" id="number">
-                    @q.Variant2
+                    <input type="radio" class="form-check-input" name="AnswerNum @q.Id" value="2" id="number">@q.Variant2
                 </label>
             </div>
             <div class="form-check disabled">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="AnswerNum @q.Id" value="3" id="number">
-                    @q.Variant3
+                    <input type="radio" class="form-check-input" name="AnswerNum @q.Id" value="3" id="number">@q.Variant3
                 </label>
             </div>
             <br />
         </fieldset>
     }
+    <button type="button" class="btn btn-primary btn-lg" id="sendBtn">Завершить</button>
+</form>*@
 
-    <input type="submit" value="Отправить" />
-</form>
 
-<button type="button" class="btn btn-primary btn-lg" id="sendBtn">Проверить</button>
-
+<script src="~/js/testPageMain.js"></script>

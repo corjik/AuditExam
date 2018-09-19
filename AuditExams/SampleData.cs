@@ -1,8 +1,6 @@
 ﻿using AuditExams.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace AuditExams
 {
@@ -12,55 +10,42 @@ namespace AuditExams
         {
             if (!context.Questions.Any())
             {
-                context.Questions.AddRange(
-                    new Question
-                    {
-                        QuestionText = "Вопрос 1",
-                        Variant1 = "Q1 V1",
-                        Variant2 = "Q1 V2",
-                        Variant3 = "Q1 V3",
-                        RightAnswer = 1,
-                        Course = "C1"
-                    },
-                    new Question
-                    {
-                        QuestionText = "Вопрос 2",
-                        Variant1 = "Q2 V1",
-                        Variant2 = "Q2 V2",
-                        Variant3 = "Q2 V3",
-                        RightAnswer = 1,
-                        Course = "C3"
-                    },
-                    new Question
-                    {
-                        QuestionText = "Вопрос 3",
-                        Variant1 = "Q3 V1",
-                        Variant2 = "Q3 V2",
-                        Variant3 = "Q3 V3",
-                        RightAnswer = 1,
-                        Course = "C2"
-                    },
-                    new Question
-                    {
-                        QuestionText = "Вопрос 4",
-                        Variant1 = "Q4 V1",
-                        Variant2 = "Q4 V2",
-                        Variant3 = "Q4 V3",
-                        RightAnswer = 1,
-                        Course = "C1"
-                    },
-                    new Question
-                    {
-                        QuestionText = "Вопрос 5",
-                        Variant1 = "Q5 V1",
-                        Variant2 = "Q5 V2",
-                        Variant3 = "Q5 V3",
-                        RightAnswer = 1,
-                        Course = "C3"
-                    }
-                );
+                Random rnd = new Random();
+                for (int i = 1; i < 100; i++)
+                {
+                    Question temp = new Question();
+                    temp.Text = "Вопрос" + i;
+                    temp.Variant1 = "Q" + i + " V1";
+                    temp.Variant2 = "Q" + i + " V2";
+                    temp.Variant3 = "Q" + i + " V3";
+                    temp.RightAnswer = rnd.Next(1, 4);
+                    temp.Course = "C" + rnd.Next(1, 4);
+
+                    context.Questions.Add(temp);
+
+                };
+
                 context.SaveChanges();
             }
         }
+
+
+        //public static void Initialize(UserContext context)
+        //{
+        //    if (!context.Users.Any())
+        //    {
+        //        context.Users.AddRange(
+        //            new User
+        //            {
+        //                Email = "admin@test.ru",
+        //                LastName = "Admin",
+        //                FirstName = "Admin",
+        //                Password = "123"
+        //            });
+        //    }
+
+        //    context.SaveChanges();
+        //}
+
     }
 }
